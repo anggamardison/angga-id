@@ -1,0 +1,72 @@
+/* Reset margin, padding, and box-sizing for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Mengatur box-sizing untuk semua elemen */
+  font-family: "Poppins", sans-serif; /* Mengatur font default */
+}
+
+/* Mengatur gaya untuk elemen body */
+body {
+  width: 100%; /* Lebar penuh */
+  height: 100vh; /* Tinggi penuh viewport */
+  display: flex; /* Menggunakan flexbox untuk penataan */
+  justify-content: center; /* Mengatur konten di tengah secara horizontal */
+  align-items: center; /* Mengatur konten di tengah secara vertikal */
+  background-color: #323837; /* Warna latar belakang */
+}
+
+/* Gaya untuk kalkulator */
+.calculator {
+  border: 1px solid #717377; /* Garis batas kalkulator */
+  padding: 20px; /* Ruang di dalam kalkulator */
+  border-radius: 16px; /* Sudut melengkung */
+  background: #1a1b26; /* Warna latar belakang kalkulator */
+  box-shadow: 0px 3px 15px rgba(113, 115, 119, 0.5); /* Bayangan untuk efek kedalaman */
+}
+
+/* Gaya untuk input */
+input {
+  width: 320px; /* Lebar input */
+  border: none; /* Tanpa garis batas */
+  padding: 24px; /* Ruang di dalam input */
+  margin: 10px; /* Margin di sekitar input */
+  background: transparent; /* Latar belakang transparan */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Garis batas dengan transparansi */
+  border-radius: 16px; /* Sudut melengkung */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Bayangan untuk efek kedalaman */
+  font-size: 40px; /* Ukuran font */
+  text-align: right; /* Teks rata kanan */
+  cursor: pointer; /* Kursor pointer saat hover */
+  color: #ffffff; /* Warna teks */
+}
+
+/* Gaya untuk placeholder di input */
+input::placeholder {
+  color: #ffffff; /* Warna placeholder */
+}
+
+/* Gaya untuk tombol */
+button {
+  border: none; /* Tanpa garis batas */
+  width: 60px; /* Lebar tombol */
+  height: 60px; /* Tinggi tombol */
+  margin: 10px; /* Margin di sekitar tombol */
+  border-radius: 50%; /* Membuat tombol bulat */
+  background: transparent; /* Latar belakang transparan */
+  color: #ffffff; /* Warna teks tombol */
+  font-size: 20px; /* Ukuran font tombol */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Garis batas dengan transparansi */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Bayangan untuk efek kedalaman */
+  cursor: pointer; /* Kursor pointer saat hover */
+}
+
+/* Gaya khusus untuk tombol sama dengan (=) */
+.equalBtn {
+  background-color: #fb7c14; /* Warna latar belakang untuk tombol sama dengan */
+}
+
+/* Gaya untuk operator */
+.operator {
+  color: #fb7c14; /* Warna teks untuk operator */
+}
