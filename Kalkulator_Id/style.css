@@ -1,72 +1,128 @@
 /* Reset margin, padding, and box-sizing for all elements */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* Mengatur box-sizing untuk semua elemen */
-  font-family: "Poppins", sans-serif; /* Mengatur font default */
+  margin: 0; /* Menghilangkan margin default */
+  padding: 0; /* Menghilangkan padding default */
+  box-sizing: border-box; /* Mengatur box-sizing untuk menghitung padding dan border dalam lebar dan tinggi elemen */
+  font-family: "Courier New", Courier, monospace; /* Mengatur font default */
 }
 
 /* Mengatur gaya untuk elemen body */
 body {
-  width: 100%; /* Lebar penuh */
-  height: 100vh; /* Tinggi penuh viewport */
-  display: flex; /* Menggunakan flexbox untuk penataan */
-  justify-content: center; /* Mengatur konten di tengah secara horizontal */
-  align-items: center; /* Mengatur konten di tengah secara vertikal */
-  background-color: #323837; /* Warna latar belakang */
+  display: flex; /* Menggunakan flexbox untuk tata letak */
+  justify-content: center; /* Mengatur konten agar terpusat secara horizontal */
+  align-items: center; /* Mengatur konten agar terpusat secara vertikal */
+  height: 100vh; /* Mengatur tinggi body menjadi 100% dari viewport */
 }
 
-/* Gaya untuk kalkulator */
-.calculator {
-  border: 1px solid #717377; /* Garis batas kalkulator */
-  padding: 20px; /* Ruang di dalam kalkulator */
-  border-radius: 16px; /* Sudut melengkung */
-  background: #1a1b26; /* Warna latar belakang kalkulator */
-  box-shadow: 0px 3px 15px rgba(113, 115, 119, 0.5); /* Bayangan untuk efek kedalaman */
+/* Mengatur gaya untuk kontainer utama */
+.container {
+  width: 100%; /* Lebar kontainer 100% */
+  max-width: 375px; /* Lebar maksimum kontainer */
+  min-height: 640px; /* Tinggi minimum kontainer */
+  overflow: hidden; /* Menyembunyikan konten yang melampaui batas kontainer */
+  border-radius: 1.5rem; /* Membuat sudut kontainer melengkung */
+  display: flex; /* Menggunakan flexbox untuk tata letak */
+  flex-direction: column; /* Mengatur arah flex menjadi kolom */
+  position: relative; /* Mengatur posisi relatif untuk elemen anak */
+  padding: 10px; /* Memberikan padding di dalam kontainer */
+  justify-content: center; /* Mengatur konten agar terpusat secara vertikal */
+  background-color: rgb(2, 61, 85); /* Mengatur warna latar belakang kontainer */
 }
 
-/* Gaya untuk input */
-input {
-  width: 320px; /* Lebar input */
-  border: none; /* Tanpa garis batas */
-  padding: 24px; /* Ruang di dalam input */
-  margin: 10px; /* Margin di sekitar input */
-  background: transparent; /* Latar belakang transparan */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Garis batas dengan transparansi */
-  border-radius: 16px; /* Sudut melengkung */
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Bayangan untuk efek kedalaman */
-  font-size: 40px; /* Ukuran font */
-  text-align: right; /* Teks rata kanan */
-  cursor: pointer; /* Kursor pointer saat hover */
-  color: #ffffff; /* Warna teks */
+/* Mengatur gaya untuk layar kalkulator */
+.layar {
+  min-height: 200px; /* Tinggi minimum layar */
+  padding: 1.5rem; /* Memberikan padding di dalam layar */
+  display: flex; /* Menggunakan flexbox untuk tata letak */
+  justify-content: flex-end; /* Mengatur konten agar berada di sebelah kanan */
+  align-items: flex-end; /* Mengatur konten agar berada di bagian bawah */
+  text-align: right; /* Mengatur teks agar rata kanan */
+  flex: 1 1 0%; /* Mengatur fleksibilitas layar */
 }
 
-/* Gaya untuk placeholder di input */
-input::placeholder {
-  color: #ffffff; /* Warna placeholder */
+/* Mengatur gaya untuk input di layar */
+.layar .input {
+  font-size: 1.25rem; /* Ukuran font untuk input */
+  margin-bottom: 0.5rem; /* Margin bawah untuk pemisahan dari elemen lain */
+  color: aliceblue; /* Warna teks input */
 }
 
-/* Gaya untuk tombol */
-button {
-  border: none; /* Tanpa garis batas */
-  width: 60px; /* Lebar tombol */
-  height: 60px; /* Tinggi tombol */
-  margin: 10px; /* Margin di sekitar tombol */
-  border-radius: 50%; /* Membuat tombol bulat */
-  background: transparent; /* Latar belakang transparan */
-  color: #ffffff; /* Warna teks tombol */
-  font-size: 20px; /* Ukuran font tombol */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Garis batas dengan transparansi */
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Bayangan untuk efek kedalaman */
-  cursor: pointer; /* Kursor pointer saat hover */
+/* Mengatur gaya untuk output di layar */
+.layar .output {
+  font-size: 3rem; /* Ukuran font untuk output */
+  font-weight: 700; /* Ketebalan font untuk output */
+  width: 100%; /* Lebar output 100% */
+  max-width: 100%; /* Lebar maksimum output */
+  overflow: auto; /* Menyediakan scroll jika konten melampaui batas */
+  color: aliceblue; /* Warna teks output */
 }
 
-/* Gaya khusus untuk tombol sama dengan (=) */
-.equalBtn {
-  background-color: #fb7c14; /* Warna latar belakang untuk tombol sama dengan */
+/* Mengatur gaya untuk operator di layar */
+.layar .opr {
+  color: rgb(194, 2, 2); /* Warna teks untuk operator */
 }
 
-/* Gaya untuk operator */
-.operator {
-  color: #fb7c14; /* Warna teks untuk operator */
+/* Mengatur gaya untuk tombol */
+.btn {
+  display: grid; /* Menggunakan grid untuk tata letak tombol */
+  grid-template-columns: repeat(4, 1fr); /* Membuat 4 kolom dengan lebar yang sama */
+  grid-template-rows: repeat(5, 1fr); /* Membuat 5 baris dengan tinggi yang sama */
+  gap: 0.3rem; /* Jarak antar tombol */
+  padding: 1.5rem; /* Memberikan padding di dalam tombol */
+  border-radius: 1.5rem 1.5rem 0 0; /* Membuat sudut tombol melengkung di bagian atas */
+  box-shadow: 0px -2px 16px rgba(3, 107, 252, 0.2); /* Menambahkan bayangan pada tombol */
+}
+
+/* Mengatur gaya untuk angka, operator, dan tombol hapus */
+.angka,
+.op,
+.hapus {
+  position: relative; /* Mengatur posisi relatif untuk elemen */
+  display: block; /* Mengatur elemen menjadi block */
+  padding-top: 100%; /* Membuat elemen berbentuk persegi */
+  cursor: pointer; /* Mengubah kursor menjadi pointer saat hover */
+  color: aliceblue; /* Warna teks untuk angka */
+  border-radius: 50%; /* Membuat tombol berbentuk lingkaran */
+  background-color: rgb(11, 158,  151); /* Mengatur warna latar belakang untuk angka */
+  transition: 0.2s; /* Menambahkan efek transisi saat hover */
+  user-select: none; /* Mencegah pemilihan teks */
+}
+
+/* Mengatur gaya untuk operator dan tombol hapus */
+.op,
+.hapus {
+  color: black; /* Warna teks untuk operator dan tombol hapus */
+  background-color: rgb(255, 154, 2); /* Mengatur warna latar belakang untuk operator */
+}
+
+/* Mengatur gaya khusus untuk tombol hapus */
+.hapus {
+  background-color: red; /* Mengatur warna latar belakang tombol hapus menjadi merah */
+  color: aliceblue; /* Warna teks untuk tombol hapus */
+}
+
+/* Mengatur gaya untuk teks di dalam tombol */
+.btn span {
+  position: absolute; /* Mengatur posisi teks menjadi absolut */
+  top: 50%; /* Mengatur posisi vertikal teks di tengah */
+  left: 50%; /* Mengatur posisi horizontal teks di tengah */
+  transform: translate(-50%, -50%); /* Menggeser teks agar tepat di tengah */
+  font-size: 2rem; /* Ukuran font untuk teks di dalam tombol */
+  font-weight: 700; /* Ketebalan font untuk teks di dalam tombol */
+}
+
+/* Mengatur efek hover pada tombol */
+.btn:hover {
+  box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.2); /* Menambahkan efek bayangan saat hover */
+}
+
+/* Mengatur gaya untuk hasil kalkulasi */
+.hasil {
+  position: relative; /* Mengatur posisi relatif untuk elemen hasil */
+  padding-top: 20%; /* Memberikan padding atas untuk hasil */
+  cursor: pointer; /* Mengubah kursor menjadi pointer saat hover */
+  color: black; /* Warna teks untuk hasil */
+  background-color: rgb(255, 154, 2); /* Mengatur warna latar belakang untuk hasil */
+  grid-column: span 4; /* Mengatur hasil agar mengambil 4 kolom dalam grid */
+  border-radius: 50%; /* Membuat hasil berbentuk lingkaran */
 }
