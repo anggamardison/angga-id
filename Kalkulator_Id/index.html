@@ -1,50 +1,88 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <title>Calculator</title> <!-- Judul halaman yang ditampilkan di tab browser -->
-  <link rel="shortcut icon" href="#" /> <!-- Ikon yang ditampilkan di tab browser (kosong saat ini) -->
-  <meta charset="UTF-8" /> <!-- Menentukan karakter encoding untuk dokumen -->
-  <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Mengatur viewport untuk responsivitas di perangkat mobile -->
-  <link href="style.css" rel="stylesheet" /> <!-- Menghubungkan file CSS untuk styling halaman -->
-</head>
-
-<body>
-  <div class="container"> <!-- Kontainer utama untuk kalkulator -->
-    <div class="calculator"> <!-- Div untuk elemen kalkulator -->
-      <input type="text" id="inputBox" placeholder="0" /> <!-- Kotak input untuk menampilkan angka dan hasil -->
-      <div>
-        <button class="button operator">AC</button> <!-- Tombol untuk menghapus semua input -->
-        <button class="button operator">DEL</button> <!-- Tombol untuk menghapus input terakhir -->
-        <button class="button operator">%</button> <!-- Tombol untuk persentase -->
-        <button class="button operator">&div;</button> <!-- Tombol untuk pembagian -->
+  <head>
+    <meta charset="UTF-8" /> <!-- Menentukan karakter encoding untuk dokumen -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Mengatur viewport untuk responsivitas di perangkat mobile -->
+    <title>Kalkulator</title> <!-- Judul halaman yang ditampilkan di tab browser -->
+    <link rel="stylesheet" href="style.css" /> <!-- Menghubungkan file CSS eksternal untuk styling -->
+  </head>
+  <body>
+    <div class="container"> <!-- Kontainer utama untuk kalkulator -->
+      <div class="layar"> <!-- Bagian layar kalkulator -->
+        <div class="content"> <!-- Konten dalam layar kalkulator -->
+           <div class="input"> <!-- Bagian input untuk menampilkan operasi yang sedang dilakukan -->
+            <span class="opr"></span> <!-- Tempat untuk menampilkan operator atau angka yang dimasukkan -->
+          </div>
+          <div class="output"></div> <!-- Bagian output untuk menampilkan hasil perhitungan -->
+        </div>
       </div>
-      <div>
-        <button class="button">7</button> <!-- Tombol angka 7 -->
-        <button class="button">8</button> <!-- Tombol angka 8 -->
-        <button class="button">9</button> <!-- Tombol angka 9 -->
-        <button class="button operator">x</button> <!-- Tombol untuk perkalian -->
-      </div>
-      <div>
-        <button class="button">4</button> <!-- Tombol angka 4 -->
-        <button class="button">5</button> <!-- Tombol angka 5 -->
-        <button class="button">6</button> <!-- Tombol angka 6 -->
-        <button class="button operator">-</button> <!-- Tombol untuk pengurangan -->
-      </div>
-      <div>
-        <button class="button">1</button> <!-- Tombol angka 1 -->
-        <button class="button">2</button> <!-- Tombol angka 2 -->
-        <button class="button">3</button> <!-- Tombol angka 3 -->
-        <button class="button operator">+</button> <!-- Tombol untuk penjumlahan -->
-      </div>
-      <div>
-        <button class="button">00</button> <!-- Tombol untuk angka 00 -->
-        <button class="button">0</button> <!-- Tombol angka 0 -->
-        <button class="button">.</button> <!-- Tombol untuk titik desimal -->
-        <button class="button equalBtn">=</button> <!-- Tombol untuk menghitung hasil -->
+      <div class="btn"> <!-- Kontainer untuk tombol-tombol kalkulator -->
+        <div data-key="delate" class="key hapus"> <!-- Tombol untuk menghapus input -->
+          <span>Del</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="clear" class="key hapus"> <!-- Tombol untuk menghapus semua input -->
+          <span>C</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="brackest" class="key op"> <!-- Tombol untuk tanda kurung -->
+          <span>()</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="%" class="key op"> <!-- Tombol untuk operator persen -->
+          <span>%</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="/" class="key op"> <!-- Tombol untuk operator pembagian -->
+          <span>/</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="7" class="key angka"> <!-- Tombol untuk angka 7 -->
+          <span>7</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="8" class="key angka"> <!-- Tombol untuk angka 8 -->
+          <span>8</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="9" class="key angka"> <!-- Tombol untuk angka 9 -->
+          <span>9</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="*" class="key op"> <!-- Tombol untuk operator perkalian -->
+          <span>X</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="4" class="key angka"> <!-- Tombol untuk angka 4 -->
+          <span>4</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="5" class="key angka"> <!-- Tombol untuk angka 5 -->
+          <span>5</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="6" class="key angka"> <!-- Tombol untuk angka 6 -->
+          <span>6</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="-" class="key op"> <!-- Tombol untuk operator pengurangan -->
+          <span>-</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="1" class="key angka"> <!-- Tombol untuk angka 1 -->
+          <span>1</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="2" class="key angka"> <!-- Tombol untuk angka 2 -->
+          <span>2</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="3" class="key angka"> <!-- Tombol untuk angka 3 -->
+          <span>3</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="+" class="key op"> <!-- Tombol untuk operator penjumlahan -->
+          <span>+</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="00" class="key angka"> <!-- Tombol untuk angka 00 -->
+          <span>00</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="0" class="key angka"> <!-- Tombol untuk angka 0 -->
+          <span>0</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="." class="key angka"> <!-- Tomb <div data-key="." class="key angka"> <!-- Tombol untuk titik desimal -->
+          <span>.</span> <!-- Teks pada tombol -->
+        </div>
+        <div data-key="=" class="key hasil"> <!-- Tombol untuk menghitung hasil dari operasi -->
+          <span>=</span> <!-- Teks pada tombol -->
+        </div>
       </div>
     </div>
-  </div>
-  <script src="script.js"></script> <!-- Menghubungkan file JavaScript untuk fungsionalitas kalkulator -->
-</body>
+
+    <script src="script.js"></script> <!-- Menghubungkan file JavaScript eksternal untuk fungsionalitas kalkulator -->
+  </body>
 </html>
